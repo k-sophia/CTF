@@ -1,3 +1,8 @@
+Very Easy - 75 points
+
+No Tools Used
+
+## Write-Up
 Given a website, the page mentions **robots.txt**.
 
 Navigated to **robots.txt** to see a mention of **/juchejaguar**, where the flag was located.

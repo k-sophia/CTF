@@ -1,3 +1,8 @@
+Easy - 150 points
+
+No Tools Used
+
+## Write-Up
 Prompt gave a website to login with given credentials. Logging in leads to **/dashboard.pho?id=1234&code=KL90MN**.
 
 The prompt gives a hint about a **‘leet’ agent**, which as written as **agent 1337**. 

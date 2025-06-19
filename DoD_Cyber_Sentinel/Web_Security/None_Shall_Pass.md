@@ -1,3 +1,14 @@
+Medium - 200 points
+
+Tools Used:
+* Burp Suite
+* [dcode.fr/en](http://dcode.fr)
+* [jwt.io](http://jwt.io)
+
+Resources:
+* [authentication/bearer-authentication/](https://swagger.io/docs/specification/v3_0/authentication/bearer-authentication/)
+
+## Write-Up
 Given a website and login credentials, prompt told to go to **/secret** to find the flag. Used Burp Suite to intercept logging in and send to Repeater, the page displays a token. 
 
 ![Burp Suite Intercept Login](../images/None_Shall_Pass1.png)
@@ -19,7 +30,6 @@ Back to Burp Suite Repeater, we manipulate the request headers
     - An HTTP authentication scheme
     - Can be understood as “give access to the bearer of this token”
     - Without Bearer, the request would fail
-    - Link: [authentication/bearer-authentication/](https://swagger.io/docs/specification/v3_0/authentication/bearer-authentication/)
 
 CTF Flag: **C1{n0n3_4lg0_byp4ss}**
 
