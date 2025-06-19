@@ -12,7 +12,6 @@ Challenges Difficulty:
 * Medium - 200 points
 * Hard - 300 points
 
-
 Tools Used:
 * Burp Suite
 * [CyberChef](https://gchq.github.io/CyberChef/)

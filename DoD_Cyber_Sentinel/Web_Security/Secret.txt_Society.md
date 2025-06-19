@@ -1,3 +1,5 @@
-Given a website, the page mentions **robots.txt**. Navigated to **robots.txt** to see a mention of **/juchejaguar**, where the flag was located.
+Given a website, the page mentions **robots.txt**.
+
+Navigated to **robots.txt** to see a mention of **/juchejaguar**, where the flag was located.
 
 CTF Flag: **C1{r0b0ts_arent_4lways_p0lit3}**
