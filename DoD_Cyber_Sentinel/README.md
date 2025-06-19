@@ -7,10 +7,10 @@ This writeup shows how I solved the challenges or how I figured to solve it afte
 * taken afterwards if it involves a file that was previously downloaded
 
 Challenges Difficulty:
-* <span style="color:#4DAB9A">Very Easy - 75 points</span>
-* <span style="color:#529CCA">Easy - 150 points</span>
-* <span style="color:#9A6DD7">Medium - 200 points</span>
-* <span style="color:#FF7369">Hard - 300 points</span>
+* Very Easy - 75 points
+* Easy - 150 points
+* Medium - 200 points
+* Hard - 300 points
 
 
 Tools Used:
