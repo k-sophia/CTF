@@ -21,8 +21,8 @@ Then used [jwt.io](http://jwt.io) to decode the JWT Token and CyberChef to edit 
 * In the payload, changed role value from user to admin
     * This gives us the privilege we need
 
-![Burp Suite Intercept Login](../images/None_Shall_Pass2.png)
-![Burp Suite Intercept Login](../images/None_Shall_Pass3.png)
+![JWT Token](../images/None_Shall_Pass2.png)
+![JWT Token](../images/None_Shall_Pass3.png)
 
 Back to Burp Suite Repeater, we manipulate the request headers
 - Request to go to secret page: **GET /secret**
@@ -33,4 +33,4 @@ Back to Burp Suite Repeater, we manipulate the request headers
 
 CTF Flag: **C1{n0n3_4lg0_byp4ss}**
 
-![Burp Suite Intercept Login](../images/None_Shall_Pass4.png)
+![CyberChef Decrypt](../images/None_Shall_Pass4.png)
