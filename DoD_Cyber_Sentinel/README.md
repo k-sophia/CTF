@@ -17,9 +17,9 @@ Tools Used:
 * [CyberChef](https://gchq.github.io/CyberChef/)
 * [dcode.fr/en](http://dcode.fr)
 * [DTMF Decoder](https://dtmf.netlify.app/)
-* ```exiftool```
-* ```strings```
+* `exiftool`
+* `strings`
 * TOR Browser
 * [jwt.io](http://jwt.io)
-* ```unzip```
+* `unzip`
 * wireshark
