@@ -2,6 +2,7 @@ Medium - 200 points
 
 Tools Used:
 * Burp Suite
+* CyberChef
 * [dcode.fr/en](http://dcode.fr)
 * [jwt.io](http://jwt.io)
 

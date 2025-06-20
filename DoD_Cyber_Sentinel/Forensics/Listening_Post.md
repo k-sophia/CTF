@@ -3,6 +3,7 @@ Medium - 200 points
 **SOLVED AFTER EVENT ENDED**
 
 Tools Used:
+* CyberChef
 * [dtmf.netlify.app/](https://dtmf.netlify.app/)
 
 ## Write-Up
