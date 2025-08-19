@@ -1,5 +1,18 @@
-# Tier 1: Play the Defender
-Alert: Ransom demand received. Play the defender and identify intrusion and determine how data was exfiltrated
+# 🛡 Tier 1: Play the Defender 🛡
 
+**Theme:** A ransom demand has been received. Play the defender to identify the intrusion and determine how data was exfiltrated. 
+
+## 🔍 Challenges
+
+12 out of 13 challenges completed:
+- [D1. Mystery Mail](./D1_Mystery_Mail.md) – Identify the sender’s IP from an extortion email  
+- [D2. Not-so-Simple Mail Protocol](./D2_Not_so_Simple_Mail_Protocol.md) – Trace the first extortion attempt in logs 
+- [D3. Ransom Wrangler](./D3_Ransom_Wrangler.md) – Negotiate wiht the attacker
+- D4. Trout of Office
+-  [D5. Ahoy, PCAP'n!](./D5_Ahoy_PCAP'n.md) – Identify which machine is sending stolen data and where it went
+
+## 🏆 Placement & Points
+
+The following image shows final ranking and total points earned:
 
 ![Placement and Points](./images/placement_and_points.png)
