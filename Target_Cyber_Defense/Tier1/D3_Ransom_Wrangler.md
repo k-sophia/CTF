@@ -1,11 +1,30 @@
 # D3. Ransom Wrangler (100)
 **Objective:** Establish communication with the attacker, obtain proof to verify the breach, and negotiate for a ransom reduction and an extended deadline
 
-## Challenge Materials
-- Link: company email interface
+**Difficulty:** Easy (100 points)
 
-## Resources and Notes
-- Tool: company email interface (via browser)
+**Category:** Social Engineering, Incident Response
+
+## Materials and References
+- **Provided:**
+    - Link: company email interface
+- **Tools Used:**
+    - Web browser
+
+## Flag Format
+
+Collect all three flags to complete the challenge:
+- Flag 1: 
+    - A specific email address from the stolen data sample
+    - Format: name@domain.com
+- Flag 2: 
+    - A verification code for successful ransom reduction 
+    - Format: CTF-RAN-XXXXXXXX
+- Flag 3: 
+    - A verification code for successful deadline extension 
+    - Format: CTF-DEA-XXXXXXXX
+
+Submit all three flags in the following combined format: `email@example.com: CTF-RAN-XXXXXXXX: CTF-DEA-XXXXXXXX`
 
 ## Write-Up
 
@@ -76,7 +95,6 @@ A follow-up email provided a verification code confirming the extension.
 ---
 
 ## ✅ Combined Flag
-Flag format: `email@example.com:CTF-RAN-XXXXXXXX:CTF-DEA-XXXXXXXX`
 
 **Flag Submission:** `V@yahoo.com.sg:CTF-RAN-9A60BE7E:CTF-DEA-74A42B8A`
 
