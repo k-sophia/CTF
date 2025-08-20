@@ -32,7 +32,7 @@ Flag is **case-insensitive**
 
 The provided `pirates.pcap` file was opened in Wireshark.
 
-![pirates.pcap](./images/D5_1.png)
+![pirates.pcap](./images/D5_01.png)
 
 To improve readability, name resolution was enabled to display hostnames instead of IPs:
 - Navigate to `Edit` → `Preferences` → `Name Resolution`
@@ -41,8 +41,11 @@ To improve readability, name resolution was enabled to display hostnames instead
   - `Resolve network (IP) addresses`
 - Select `OK`
 
-![Name Resolution settings](./images/D5_2.png)
-![pirates.pcap with Name Resolution](./images/D5_3.png)
+<p align="center">
+  <img src="./images/D5_02.png" alt="Name Resolution settings" width="450"/>
+</p>
+
+![pirates.pcap with Name Resolution](./images/D5_03.png)
 
 Traffic was first filtered to show only TCP packets, given that exfiltration commonly utilizes TCP-based protocols. However, this filtering did not reveal any clearly suspicious activity.
 
@@ -68,7 +71,7 @@ Filtering was refined so that **outbound traffic is from internal IPs to externa
     - Filters for external IP ranges as the **destination** (filters out internal IPs as destination)
 - Combined with `and`, this isolates **internal → external** traffic only.
 
-![internal IP to external IP](./images/D5_4.png)
+![internal IP to external IP](./images/D5_04.png)
 
 This significantly narrowed down the traffic.
 
@@ -78,7 +81,7 @@ Updated filter shows **outbound traffic from internal IPs to external IPs using 
 
 `(ip.src == 192.168.0.0/16 or ip.src == 10.0.0.0/8 or ip.src == 172.16.0.0/12) and !(ip.dst == 192.168.0.0/16 or ip.dst == 10.0.0.0/8 or ip.dst == 172.16.0.0/12) and udp.port == 53`
 
-![internal IP to external IP using UDP port](./images/D5_5.png)
+![internal IP to external IP using UDP port](./images/D5_05.png)
 
 All resulting packets had the **same internal source and external destination**. The DNS query strings appear to contain **ciphered** data, indicating DNS tunneling.
 - The compromised machine's name: `bvlik`

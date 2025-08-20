@@ -30,7 +30,7 @@ Submit all three flags in the following combined format: `email@example.com: CTF
 
 Used the CTF website credentials to log into the email interface and initiate communication with the attacker. The inbox displayed a ransom message from the attacker.
 
-![email interface](./images/D3_1.png)
+![email interface](./images/D3_01.png)
 
 Initial attempts using a passive/pleading tone were ineffective. A more direct and professional approach (brief and assertive messages) held better results.
 
@@ -48,7 +48,7 @@ The attacker responded with a sample containing three email addresses.
 - Frog-cow.a@rambler.ru
 - j-h.h49706@hotmail.it
 
-![data sample](./images/D3_2.png)
+![data sample](./images/D3_02.png)
 
 Any email from the data sample can be submitted as the flag.
 
@@ -65,13 +65,13 @@ The attacker initially demanded 45 BTC. A counter-offer was made to reduce the d
 
 The attacker accepted the reduced amount.
 
-![ransom reduction](./images/D3_3.png)
+![ransom reduction](./images/D3_03.png)
 
 Shortly after, a verification code confirming the new ransom amount was received.
 
 **Flag 2:** `CTF-RAN-9A60BE7E`
 
-![verification code for ransom reduction](./images/D3_4.png)
+![verification code for ransom reduction](./images/D3_04.png)
 
 ---
 
@@ -84,13 +84,13 @@ The original deadline of 48 hours needed to be extended to at least 96 hours.
 
 The attacker responded, countering with a 96-hour extension instead.
 
-![deadline extension](./images/D3_5.png)
+![deadline extension](./images/D3_05.png)
 
 A follow-up email provided a verification code confirming the extension.
 
 **Flag 3:** `CTF-DEA-74A42B8A`
 
-![verification code for deadline extension](./images/D3_6.png)
+![verification code for deadline extension](./images/D3_06.png)
 
 ---
 
@@ -98,4 +98,4 @@ A follow-up email provided a verification code confirming the extension.
 
 **Flag Submission:** `V@yahoo.com.sg:CTF-RAN-9A60BE7E:CTF-DEA-74A42B8A`
 
-![attacker requesting 20 BTC in 96 hours](./images/D3_7.png)
+![attacker requesting 20 BTC in 96 hours](./images/D3_07.png)
