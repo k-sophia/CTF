@@ -2,6 +2,10 @@
 
 **Theme:** A ransom demand has been received. Play the defender to identify the intrusion and determine how data was exfiltrated. 
 
+<p align="center">
+  <img src="../images/Tier1_Badge.png" alt="Tier 1 Badge" width="350"/>
+</p>
+
 ## 🔍 Challenges
 
 12 out of 13 challenges completed:
