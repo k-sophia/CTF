@@ -1,4 +1,4 @@
-# D7. Endpoints and Exfiltration (100)
+# D7. Endpoints and Exfiltration
 **Objective:** Identify the OS process, user, and software that is performing the exfiltration and where the software came from.
 
 **Difficulty:** Easy (100 points)
@@ -14,7 +14,7 @@
 - **Tools Used:**
     - Text editor (e.g., Mousepad on Kali Linux)
 - **References:**
-    - [grep-command-linux-unix-examples](https://phoenixnap.com/kb/grep-command-linux-unix-examples)
+    - [grep command in linux with examples](https://phoenixnap.com/kb/grep-command-linux-unix-examples)
 - **Notes:**
     - Findings from D5:
         - IP source is `10.75.34.13`
@@ -82,7 +82,7 @@ From this line, the following information was identified:
 
 ### Analyzing ps.txt
 
-Next, the focus shifted to `ps.txt`to idenitfy executable files associated witht he USER and PID found earlier.
+Next, the focus shifted to `ps.txt`to identify executable files associated with the USER and PID found earlier.
 
 The file `ps.txt` was opened in a text editor.
 
@@ -106,7 +106,7 @@ The file was opened on a text editor.
 A search for `/usr/bin/jot` returned 3 matches. With these 3 entries, a few commands prior were also investigated, analyzing a total of 5 commands:
 ```Bash
 git clone git@github.com/elesiuta/backupy.git
-pip install •/backupy
+pip install ./backupy
 sudo rm /usr/bin/jot
 ln -s /usr/bin/jot /usr/.local/bin/backupy
 /usr/bin/jot
