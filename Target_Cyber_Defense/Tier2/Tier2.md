@@ -11,9 +11,18 @@
 Kick Off:
 - Congratulations Tier Two Challengers! 
 
-10 out of 11 challenges completed:
--
-- O5: Tunnel Vision (500) - After
+10 out of 11 core challenges completed:
+- O1: Remarkable Resume
+- O2.1: Touchy Templates
+- O2.2: Friendly Files
+- O2.3: Naughty Network 
+- O3: Escalation of Power 
+- O4.1: Permission Pathways
+- O4.2: Lousy LDAP
+- O4.3:  Suspicious SMB
+- O4.4: Legal Lockbox
+- O4.5: Mystery Messenger 
+- O5: Tunnel Vision
 
 Bonus Challenge:
 - O6: We're Calling About Your Extension's Warranty
