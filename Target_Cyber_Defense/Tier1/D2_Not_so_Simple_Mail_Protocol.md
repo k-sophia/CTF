@@ -6,7 +6,6 @@
 **Category:** Log Analysis, Email Investigation
 
 ## Materials and References
-
 - **Provided:**
     - Link: Insightful Horizon (OpenSearch dashboard)
     - Credentials:
@@ -15,7 +14,8 @@
 - **Tools Used:**
     - OpenSearch Dashboard (via browser)
 - **Notes:**
-    - Prior knowledge from D1: Sender's IP `252.44.98.29`
+    - Findings from D1: 
+        - Sender's IP `252.44.98.29`
 
 ## Flag Format
 An email address.
