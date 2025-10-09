@@ -10,8 +10,6 @@
     - Link: Insightful Horizon (OpenSearch dashboard), used the `audit-logs` index
 - **Tools Used:**
     - OpenSearch Dashboard (via browser)
-- **References:**
-    - None
 - **Notes:**
     - Given credentials from D2:
         - Username: `analyst`
