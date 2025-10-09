@@ -8,24 +8,24 @@
 
 ## 🔍 Challenges
 
-Kick Off:
-- Congratulations Tier Two Challengers! 
+Kick Off: Congratulations Tier Two!
 
-10 out of 11 core challenges completed:
-- O1: Remarkable Resume
-- O2.1: Touchy Templates
-- O2.2: Friendly Files
-- O2.3: Naughty Network 
-- O3: Escalation of Power 
-- O4.1: Permission Pathways
-- O4.2: Lousy LDAP
-- O4.3:  Suspicious SMB
-- O4.4: Legal Lockbox
-- O4.5: Mystery Messenger 
-- O5: Tunnel Vision
-
-Bonus Challenge:
-- O6: We're Calling About Your Extension's Warranty
+| ID | Title | Description |
+|----|-------|-------------|
+| 🟦 **Core Challenges**  | | |
+| O1    | Remarkable Resume                             | temp         |
+| O2.1  | Touchy Templates                              | temp         |
+| O2.2  | Friendly Files                                | temp         |
+| O2.3  | Naughty Network                               | temp         |
+| O3    | Escalation of Power                           | temp         |
+| O4.1  | Permission Pathways                           | temp         |
+| O4.2  | Lousy LDAP                                    | temp         |
+| O4.3  | Suspicious SMB                                | temp         |
+| O4.4  | Legal Lockbox                                 | temp         |
+| O4.5  | Mystery Messenger                             | temp         |
+| O5    | Tunnel Vision                                 | temp         |
+| 🟨 **Bonus Challenge** | | |
+| O6    | We're Calling About Your Extension's Warranty | temp         |
 
 ## 🏆 Placement & Points
 
