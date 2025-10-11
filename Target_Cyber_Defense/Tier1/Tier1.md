@@ -25,7 +25,7 @@ After Event: 1 challenge completed.
 | [D9](./D9_Logging_for_Truth.md)           | Logging for Truth               | Log Analysis, Git Forensics                            | Find the IPv4 address that added the malicious code               |
 | [D10](./D10_Backup_Break-in.md)           | Backup Break-in                 | Credential Exposure, Data Discovery, Forensics         | Locate the leaked credentials on the backup server            |
 | [D11](./D11_Semi-Final_Boss.md)           | Semi-Final Boss                 | Windows Forensics                                      | Find one suspicious registry key                                |
-| [D12]()                                   | Final Boss                      | TBA                                                    | TBA |
+| [D12](./D12_Final_Boss.md)                | Final Boss                      | Linux Forensics                                        | Discover an IOC in a disk image                                  |
 | [D13]()                                   | Caught!                         | TBA                                                    | TBA |
 
 ## 🏆 Placement & Points
