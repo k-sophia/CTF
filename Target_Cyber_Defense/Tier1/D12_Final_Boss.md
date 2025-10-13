@@ -131,3 +131,31 @@ sudo cryptsetup luksOpen /dev/loop0 rootfs
 </p>
 
 The passphrase is given or not known at this point. Since the partition is encrypted, the IOC is likely stored inside. The passphrase may be in the boot partiton, therefore it is mounted next to investigate.
+
+**Boot Partition**
+
+Mount the boot partition to search for a potential password of the root partition.
+
+Calculate the boot partition offset with the expression:
+```text
+Start sector  * sector size  = 8192 * 512 = 4194304
+```
+
+Use the following commands to create a mount point and mount the boot partition using the calculated offset. The direct mount failed due to an existing loop device on the root partition.
+```Bash
+mkdir /mnt/boot #mount point
+sudo mount -o loop,offset=4194304 sdcard.img /mnt/boot #attempt to mount boot partition
+```
+
+Another loop device needs to be created for the boot partition. Run the commands below to create a separate loop device for the boot partition and mount that device instead:
+```Bash
+sudo losetup -fP --show -o 4194304 sdcard.img #loop device for boot partition
+sudo mount /dev/loop1 /mnt/boot #mount boot partition
+ls /mnt/boot #see directory in boot partition
+```
+
+<p align="center">
+  <img src="./images/D12_07.png" alt="mount boot partition" width="650"/>
+</p>
+
+There are only 3 txt files within the boot partiton. Each were inspected but none contained the password needed to unlock the root partition.
