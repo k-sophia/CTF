@@ -159,3 +159,59 @@ ls /mnt/boot #see directory in boot partition
 </p>
 
 There are only 3 txt files within the boot partiton. Each were inspected but none contained the password needed to unlock the root partition.
+
+**Cracking LUKS Password**
+
+Focus shifted to cracking the password using john the ripper.
+
+To extract the LUKS hash from the loop device, run the command:
+
+```Bash
+sudo /usr/share/jogn/luks2john.py /devloop0 > luks_hash.txt
+```
+
+<p align="center">
+  <img src="./images/D12_08.png" alt="sudo /usr/share/jogn/luks2john.py /devloop0 > luks_hash.txt" width="500"/>
+</p>
+
+Run John the Ripper using the **RockYou** wordlist and `luks` format:
+
+```Bash
+john --format=luks --wordlist=/usr/share/wordlists/rockyou.txt luks_hash.txt
+```
+
+The password is `djcat`.
+
+<p align="center">
+  <img src="./images/D12_09.png" alt="crack password with john" width="500"/>
+</p>
+
+Decrypt partition using the discovered password by running the command:
+
+```Bash
+sudo cryptsetup luksOpen /dev/loop0 rootfs
+```
+
+<p align="center">
+  <img src="./images/D12_10.png" alt="unlock root partition" width="500"/>
+</p>
+
+To confirm the decrypted device exists at `/dev/mapper/rootfs`, run the following command and check if **rootfs** is listed:
+```Bash
+ls /dev/mapper/
+```
+
+Mount root partition by running the command:
+
+```Bash
+sudo mount /dev/mapper/rootfs /mnt/root
+```
+
+To check if the root partition is mounted, run the command to see the directory:
+```Bash
+ls /mnt/root
+```
+
+<p align="center">
+  <img src="./images/D12_11.png" alt="check /dev/mapper/, mount root partition, check /mnt/root" width="500"/>
+</p>
