@@ -8,7 +8,9 @@
 ## Materials and References
 - **Provided:**
     - Disk image (sd card): `sdcard.img.7z`
-    - Resource link: [Linux-Forensics-cheatsheet](https://fareedfauzi.github.io/2024/03/29/Linux-Forensics-cheatsheet.html#disk-imaging-using-dd)
+    - Resource link:
+      - [Linux Forensics Cheatsheet (broken)](https://fareedfauzi.github.io/2024/03/29/Linux-Forensics-cheatsheet.html)
+      - [Linux Forensics](https://fareedfauzi.github.io/cheatsheets/linux-forensics/) - from the same author, includes the relevant sections used in this challenge
 - **Tools Used:**
     - Linux VM
     - Terminal
