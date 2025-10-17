@@ -7,7 +7,7 @@
 
 ## Materials and References
 - **Provided:**
-    - Disk image (sd card): `sdcard.img.7z`
+    - Disk image (SD card): `sdcard.img.7z`
     - Resource link:
       - [Linux Forensics Cheatsheet (broken)](https://fareedfauzi.github.io/2024/03/29/Linux-Forensics-cheatsheet.html)
       - [Linux Forensics](https://fareedfauzi.github.io/cheatsheets/linux-forensics/) - from the same author, includes the relevant sections used in this challenge
@@ -49,9 +49,11 @@ fdisk -l sdcard.img
 ```
 2 partition tables were discovered:
 - `W95 FAT32 (LBA)` Partition with size 256MB
-    - Possible the RaspberryPi boot partition, will refer as boot partition
+    - Possible the RaspberryPi boot partition
+    - Possibly the Raspberry Pi boot partition
+    - Referred to as "boot partition" in this writeup
 - `Linux` Partition with size 4x2GB
-    - Will refer to this as our root partition
+    - Referred to as "root partition" in this writeup
 
 <p align="center">
   <img src="./images/D12_02.png" alt="fdisk -l sdcard.img" width="400"/>
@@ -59,32 +61,29 @@ fdisk -l sdcard.img
 
 ### Mounting Partitions
 
-Need to mount the partition to analyze it. 
+The partition needs to be mounted for analysis.
 
 **Root Partition**
 
 Focus was placed on mounting the root (Linux) partition to inspect its contents. Since this partition is larger, it is likely the main filesystem and may contain the IOC.
 
 To mount, the byte offset of the root partition needs to be calculated. This value represents where the root partition begins inside `sdcard.img`.
-
 ```text
 Start sector  * sector size  = 532480 * 512 = 272629760
 ```
 
 Create a mount point with the command below. This will be the folder where the partition's contents will appear once the disk image partition is mounted.
-
 ```Bash
 sudo mkdir /mnt/root
 ```
 
 Then mount the root partition using the calculated offset with the command:
-
 ```Bash
 sudo mount -o loop,offset=272629760 sdcard.img /mnt/root
 ```
 - `sudo`: Required to mount file systems
 - `mount`: The mount command
-- `o loop`: Treats the image file as a block device
+- `-o loop`: Treats the image file as a block device
 - `offset=272629760`: Byte offset where the partition starts
 - `sdcard.img`: The full disk image file
 - `/mnt/root`: Where to mount it
@@ -98,21 +97,19 @@ The mount failed with an unknown filesystem type indicating crypto_LUKS:
 dmesg(1) may have more information after failed mount system call.
 
 To unlock the partition, first create a loop device for the root partition using the command:
-
 ```Bash
 sudo losetup -fP --show -o 272629760 sdcard.img
 ```
 - `losetup`: Tool to create loop devices
 - `-fP`: Automatically finds a free loop device and parses partitions
 - `--show`: Displays the loop device name (e.g., /dev/loop0)
-- `o 272629760`: Offset to the encrypted partition
+- `-o 272629760`: Offset to the encrypted partition
 
 <p align="center">
   <img src="./images/D12_04.png" alt="loop device for root partition" width="450"/>
 </p>
 
 Verify it's encrypted with LUKS with command:
-
 ```Bash
 sudo cryptsetup luksDump /dev/loop0
 ```
@@ -122,8 +119,7 @@ sudo cryptsetup luksDump /dev/loop0
 </p>
 
 Run the following command to unlock the root partition (prompts a passphrase). Default credentials (such as password) was tested first but failed.
-- If correct passphrease, makes the decrypted device available at `/dev/mapper/rootfs`
-
+- If correct passphrase, makes the decrypted device available at `/dev/mapper/rootfs`
 ```Bash
 sudo cryptsetup luksOpen /dev/loop0 rootfs
 ```
@@ -132,7 +128,7 @@ sudo cryptsetup luksOpen /dev/loop0 rootfs
   <img src="./images/D12_06.png" alt="command to unlock root partition attempt" width="450"/>
 </p>
 
-The passphrase is given or not known at this point. Since the partition is encrypted, the IOC is likely stored inside. The passphrase may be in the boot partiton, therefore it is mounted next to investigate.
+The passphrase is given or not known at this point. Since the partition is encrypted, the IOC is likely stored inside. The passphrase may be in the boot partition, therefore it is mounted next to investigate.
 
 **Boot Partition**
 
@@ -160,24 +156,22 @@ ls /mnt/boot #see directory in boot partition
   <img src="./images/D12_07.png" alt="mount boot partition" width="650"/>
 </p>
 
-There are only 3 txt files within the boot partiton. Each were inspected but none contained the password needed to unlock the root partition.
+There are only 3 txt files within the boot partition. Each were inspected but none contained the password needed to unlock the root partition.
 
 **Cracking LUKS Password**
 
-Focus shifted to cracking the password using john the ripper.
+Focus shifted to cracking the password using John the Ripper.
 
 To extract the LUKS hash from the loop device, run the command:
-
 ```Bash
-sudo /usr/share/jogn/luks2john.py /devloop0 > luks_hash.txt
+sudo /usr/share/john/luks2john.py /dev/loop0 > luks_hash.txt
 ```
 
 <p align="center">
-  <img src="./images/D12_08.png" alt="sudo /usr/share/jogn/luks2john.py /devloop0 > luks_hash.txt" width="500"/>
+  <img src="./images/D12_08.png" alt="sudo /usr/share/john/luks2john.py /dev/loop0 > luks_hash.txt" width="500"/>
 </p>
 
 Run John the Ripper using the **RockYou** wordlist and `luks` format:
-
 ```Bash
 john --format=luks --wordlist=/usr/share/wordlists/rockyou.txt luks_hash.txt
 ```
@@ -189,7 +183,6 @@ The password is `djcat`.
 </p>
 
 Decrypt partition using the discovered password by running the command:
-
 ```Bash
 sudo cryptsetup luksOpen /dev/loop0 rootfs
 ```
@@ -204,7 +197,6 @@ ls /dev/mapper/
 ```
 
 Mount root partition by running the command:
-
 ```Bash
 sudo mount /dev/mapper/rootfs /mnt/root
 ```
@@ -227,10 +219,10 @@ Multiple locations on the root partition were inspected, including:
 - `/mnt/root/etc`
 - `/mnt/root/var/log`
 
-Multiple references to `tinypilot` were found. The files align to the findings from D11 about IP KVM (USB devices acting as HID for remote controlling). While this connects to D11, no IOC was discovered within these files. 
+Multiple references to `tinypilot` were found. The files align with the findings from D11 about IP KVM (USB devices acting as HID for remote controlling). While this connects to D11, no IOC was discovered within these files. 
 
 `tinypilot` related findings: 
-- `mnt/root/home/tinypilot`
+- `/mnt/root/home/tinypilot`
 - `tinypilot.db`
 - `/mnt/root/opt/tinypilot`
 - `/mnt/root/opt/tinypilot-privileged`
@@ -269,7 +261,7 @@ ExecStart=/bin/bash -c 'openssl enc -aes-256-cbc -d -a -pass pass:$HOSTNAME$MACH
   <img src="./images/D12_15.png" alt="tunnel.service" width="700"/>
 </p>
 
-To decrypt the cipher test, the `HOSTNAME` and the `MATCHTYPE` is needed. From previous investigation on the network, the hostname can be found with the command:
+To decrypt the cipher text, the `HOSTNAME` and the `MACHTYPE` are needed. From previous investigation on the network, the hostname can be found with the command:
 ```Bash
 sudo cat /mnt/root/etc/hostname
 ```
@@ -278,21 +270,19 @@ sudo cat /mnt/root/etc/hostname
   <img src="./images/D12_16.png" alt="/mnt/root/etc/hostname" width="350"/>
 </p>
 
-Used grep command to find where `MATCHTYPE` is mentioned:
+Used grep command to find where `MACHTYPE` is mentioned:
 ```Bash
 grep -Ri 'MACHTYPE' /mnt/root/*
 ```
 
-Within the results is the `MATCHTYPE` value is found:
+Within the results is the `MACHTYPE` value is found:
 > MACHTYPE="arm-unknown-linux-gnueabihf"
 
 <p align="center">
   <img src="./images/D12_17.png" alt="grep for MACHTYPE" width="450"/>
 </p>
 
-The encrypted string was decrypted using OpenSSL with the combined passphrase tinypilotarm-unknown-linux-gnueabihf:
-
-Used the same openSSL command to decrypt the ciphertext with the credentials found:
+Used the same OpenSSL command to decrypt the ciphertext with the credentials found:
 ```Bash
 echo 'U2FsdGVkX1/YfJQW/JLTLYE//2c7AodbgJVFXknjQ+kyUkNRZDCTXWADnwFCjHKVJAOG2rk+iUvCETeXv3+I8PWGSVOUesrzqMFp+OBVd/4=' | \
 openssl enc -aes-256-cbc -d -a -pbkdf2 -pass pass:tinypilotarm-unknown-linux-gnueabihf
