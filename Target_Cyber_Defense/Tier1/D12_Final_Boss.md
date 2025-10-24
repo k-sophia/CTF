@@ -301,5 +301,53 @@ The output revealed the IOC: `232.122.57.92`
   <img src="./images/D12_18.png" alt="decrypt ciphertext" width="700"/>
 </p>
 
+### Unmounting Partitions
+
+After discovering the IOC (flag), both partitions need to be unmounted
+
+Run the following commands to unmount the boot and root partitions:
+```Bash
+sudo umount /mnt/boot
+sudo umount /mnt/root
+```
+
+After `/mnt/root` is unmounted, close the decrypted LUKS mapping to remove access to the decrypted device:
+```Bash
+sudo cryptsetup luksClose rootfs
+```
+
+Verify the loop devices currently in use with the command:
+```Bash
+losetup -a
+```
+
+2 loop devices were used in this challenge:
+- `/dev/loop0` — root partition
+- `/dev/loop1` — boot partition
+
+Detach both loop devices with the commands:
+```Bash
+sudo losetup -d /dev/loop0
+sudo losetup -d /dev/loop1
+```
+
+<p align="center">
+  <img src="./images/D12_19.png" alt="unmountting, confirm loop devices, detach loop devices" width="500"/>
+</p>
+
+Confirm that the partitions and loop devices have been properly removed:
+```Bash
+findmnt /mnt/root
+findmnt /mnt/boot
+losetuo -a
+ls /dev/mapper/
+```
+
+No output is displayed and rootfs no longer appear under `/dev/mapper/`, confirming that all mounts and loop devices have been successfully detached.
+
+<p align="center">
+  <img src="./images/D12_20.png" alt="confirm partitions were unmounted" width="400"/>
+</p>
+
 ---
 **Flag**: `232.122.57.92`
