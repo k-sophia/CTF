@@ -26,7 +26,7 @@ After Event: 1 challenge completed.
 | [D10](./D10_Backup_Break-in.md)           | Backup Break-in                 | Credential Exposure, Data Discovery, Forensics         | Locate the leaked credentials on the backup server            |
 | [D11](./D11_Semi-Final_Boss.md)           | Semi-Final Boss                 | Windows Forensics                                      | Find one suspicious registry key                                |
 | [D12](./D12_Final_Boss.md)                | Final Boss                      | Linux Forensics                                        | Discover an IOC in a disk image                                  |
-| [D13]()                                   | Caught!                         | TBA                                                    | TBA |
+| [D13](./D13_Caught!.md)                   | Caught!                         | Survey                                                 | Submit the favorite challenge number to complete the CTF        |
 
 ## 🏆 Placement & Points
 
