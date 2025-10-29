@@ -121,4 +121,4 @@ The stolen data includes:
 - CVVofCreditCard: `0016`
 - Email `alec@sbcglobal.net`
 
-**Flag:** `11/30_0016_alec@sbcglobal.net`
+**Flag**: `11/30_0016_alec@sbcglobal.net`

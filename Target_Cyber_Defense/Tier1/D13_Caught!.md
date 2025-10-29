@@ -12,4 +12,4 @@ Example: `D1`
 
 ## Write-Up
 
-**Flag:** `D8`
+**Flag**: `D8`

@@ -87,4 +87,4 @@ All resulting packets had the **same internal source and external destination**.
 - The compromised machine's name: `bvlik`
 - The Command-and-Control (C2) IP address: `251.91.13.37`
 
-**Flag:** `bvlik_251.91.13.37`
+**Flag**: `bvlik_251.91.13.37`

@@ -123,4 +123,4 @@ Based on this, the malicious executable file was identified as:
 **File:** `backupy`
 
 ----
-**Flag:** `backupsys_backupy_64866`
+**Flag**: `backupsys_backupy_64866`

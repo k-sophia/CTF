@@ -25,6 +25,6 @@ There were 3 IP addresses in the email headers.
 
 Based on standard email structure, the original sender's IP address is in the first **Received** header, which was located on the fourth line of the file.
 
-**Flag:** `252.44.98.29`
+**Flag**: `252.44.98.29`
 
 ![extortion_note.eml](./images/D1.png)

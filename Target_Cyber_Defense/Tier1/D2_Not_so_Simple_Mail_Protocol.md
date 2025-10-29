@@ -53,7 +53,7 @@ The result was reduced to 2 logs. The first log matched the email previously see
 
 Expanding the log revealed the sender's email address.
 
-**Flag:** `tharris456@tgwnaagm.co`
+**Flag**: `tharris456@tgwnaagm.co`
 
 <p align="center">
   <img src="./images/D2_05.png" alt="first extortion email log" width="280"/>
