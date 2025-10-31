@@ -14,8 +14,8 @@ Kick Off: Congratulations Tier Two!
 
 | ID | Title | Description |
 |----|-------|-------------|
-| [01](./O1_Remarkable_Resume.md)    | Remarkable Resume                             | TBA         |
-| O2.1  | Touchy Templates                              | TBA         |
+| [01](./O1_Remarkable_Resume.md)     | Remarkable Resume                             | TBA         |
+| [O2.1](./O2.1_Touchy_Templates.md)  | Touchy Templates                              | TBA         |
 | O2.2  | Friendly Files                                | TBA         |
 | O2.3  | Naughty Network                               | TBA         |
 | O3    | Escalation of Power                           | TBA         |
