@@ -6,6 +6,8 @@ This writeup shows how I solved the challenges or how I figured to solve it afte
 * taken from other writeups if it involves a site or network
 * taken afterwards if it involves a file that was previously downloaded
 
+Date: June 14th 2025, 11:00AM - 7:00PM ET
+
 Challenges Difficulty:
 * Very Easy - 75 points
 * Easy - 150 points
