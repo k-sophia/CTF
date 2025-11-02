@@ -34,6 +34,29 @@ Tools Used:
 * `unzip`
 * wireshark
 
+## Challenge Overview
+
+🕵️‍♂️ **Forensics**
+- [Behind the Beat](./Forensics/Behind_the_Beat.md)
+- [Hidden in Plain Sight](./Forensics/Hidden_in_Plain_Sight.md)
+- [Listening Post](./Forensics/Listening_Post.md)
+
+🧩 **Malware and Reverse Engineering**
+- [Encoded Evidence](./Malware_And_Reverse_Engineering/Encoded_Evidence.md)
+- [Hardcoded Lies](./Malware_And_Reverse_Engineering/Hardcoded_Lies.md)
+
+🌐 **Networking**
+- [Packet Whisperer](./Networking/Packet_Whisperer.md)
+
+🔍 **OSINT**
+- [Cafe Confidential](./OSINT/Cafe_Confidential.md)
+- [Problems in North TORbia](./OSINT/Problems_in_North_TORbia.md)
+
+💻 **Web Security**
+- [Field Reports Mayhem](./Web_Security/Field_Reports_Mayhem.md)
+- [None Shall Pass](./Web_Security/None_Shall_Pass.md)
+- [Secret.txt Society](./Web_Security/Secret.txt_Society.md)
+
 ## 🏆 Placement & Points
 
 The following image shows final ranking and total points earned:
