@@ -17,7 +17,7 @@ Kick Off: Congratulations Tier Two!
 | [01](./O1_Remarkable_Resume.md)     | Remarkable Resume    | Identify the real job listing and craft a resume that passes all criteria.         |
 | [O2.1](./O2.1_Touchy_Templates.md)  | Touchy Templates     | Confirm SSTI vulnerability and retrieve sensitive data.                            |
 | [O2.2](./O2.2_Friendly_Files.md)    | Friendly Files       | Exploit LFI vulnerability to retrieve sensitive data.                              |
-| O2.3  | Naughty Network                               | TBA         |
+| [O2.3](./O2.3_Naughty_Network.md)   | Naughty Network      | Exploit the network diagnostic console to retrieve sensitive data.                 |
 | O3    | Escalation of Power                           | TBA         |
 | O4.1  | Permission Pathways                           | TBA         |
 | O4.2  | Lousy LDAP                                    | TBA         |
