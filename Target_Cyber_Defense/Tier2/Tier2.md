@@ -18,7 +18,7 @@ Kick Off: Congratulations Tier Two!
 | [O2.1](./O2.1_Touchy_Templates.md)  | Touchy Templates     | Confirm SSTI vulnerability and retrieve sensitive data.                            |
 | [O2.2](./O2.2_Friendly_Files.md)    | Friendly Files       | Exploit LFI vulnerability to retrieve sensitive data.                              |
 | [O2.3](./O2.3_Naughty_Network.md)   | Naughty Network      | Exploit the network diagnostic console to retrieve sensitive data.                 |
-| O3    | Escalation of Power                           | TBA         |
+| [O3](./O3_Escalation_of_Power.md)   | Escalation of Power  | Exploit a restricted shell to escalate privileges and prove your access.           |
 | O4.1  | Permission Pathways                           | TBA         |
 | O4.2  | Lousy LDAP                                    | TBA         |
 | O4.3  | Suspicious SMB                                | TBA         |
