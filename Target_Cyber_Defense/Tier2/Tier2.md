@@ -22,10 +22,10 @@
 | [O2.3. Naughty Network](./O2.3_Naughty_Network.md) | ![](https://img.shields.io/badge/300_pts-8a2be2?style=flat-square) | Exploit the network diagnostic console to retrieve sensitive data. | ✅ Solved |
 | [O3. Escalation of Power](./O3_Escalation_of_Power.md) | ![](https://img.shields.io/badge/300_pts-8a2be2?style=flat-square) | Exploit a restricted shell to escalate privileges and prove your access. | ✅ Solved |
 | [O4.1. Permission Pathways](./O4.1_Permission_Pathways.md) | ![](https://img.shields.io/badge/200_pts-2ea44f?style=flat-square) | ⏳ Pending | ⏳ Pending |
-| [O4.2. Lousy LDAP](./O4.2_Lousy_LDAP.md) | ![](https://img.shields.io/badge/200_pts-2ea44f?style=flat-square) | ⏳ Pending | ⏳ Pending |
-| [O4.3. Suspicious SMB](./O4.3_Suspicious_SMB.md) | ![](https://img.shields.io/badge/200_pts-2ea44f?style=flat-square) | ⏳ Pending | ⏳ Pending |
-| [O4.4. Legal Lockbox](./O4.4_Legal_Lockbox.md) | ![](https://img.shields.io/badge/200_pts-2ea44f?style=flat-square) | ⏳ Pending | ⏳ Pending |
-| [O4.5. Mystery Messenger](./O4.5_Mystery_Messenger.md) | ![](https://img.shields.io/badge/200_pts-2ea44f?style=flat-square) | ⏳ Pending | ⏳ Pending |
+| O4.2. Lousy LDAP | ![](https://img.shields.io/badge/200_pts-2ea44f?style=flat-square) | ⏳ Pending | ⏳ Pending |
+| O4.3. Suspicious SMB | ![](https://img.shields.io/badge/200_pts-2ea44f?style=flat-square) | ⏳ Pending | ⏳ Pending |
+| O4.4. Legal Lockbox | ![](https://img.shields.io/badge/200_pts-2ea44f?style=flat-square) | ⏳ Pending | ⏳ Pending |
+| O4.5. Mystery Messenger | ![](https://img.shields.io/badge/200_pts-2ea44f?style=flat-square) | ⏳ Pending | ⏳ Pending |
 | O5. Tunnel Vision | ![](https://img.shields.io/badge/500_pts-d93f0b?style=flat-square) | ⏳ Pending | ❌ DNF |
 | **🟨 Bonus Challenge** | | | |
 | O6. We're Calling About Your Extension's Warranty | ![](https://img.shields.io/badge/200_pts-2ea44f?style=flat-square) | ⏳ Pending | ❌ DNF |
