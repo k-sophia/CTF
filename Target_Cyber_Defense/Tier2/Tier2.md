@@ -28,7 +28,7 @@
 | O4.5. Mystery Messenger | ![](https://img.shields.io/badge/200_pts-2ea44f?style=flat-square) | ⏳ Pending | ⏳ Pending |
 | O5. Tunnel Vision | ![](https://img.shields.io/badge/500_pts-d93f0b?style=flat-square) | Reverse engineer a server binary to rebuild the client protocol and exfiltrate data. | ❌ DNF |
 | **🟨 Bonus Challenge** | | | |
-| O6. We're Calling About Your Extension's Warranty | ![](https://img.shields.io/badge/200_pts-2ea44f?style=flat-square) | ⏳ Pending | ❌ DNF |
+| O6. We're Calling About Your Extension's Warranty | ![](https://img.shields.io/badge/200_pts-2ea44f?style=flat-square) | Analyze a browser security extension to gain elevated access on an unprivileged portal. | ❌ DNF |
 
 ## 🏆 Placement & Points
 
